@@ -9,12 +9,12 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv C3173AA6 \
  && echo 'deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main' > /etc/apt/sources.list.d/pgdg.list \
  && apt-get update \
  && apt-get install -y supervisor logrotate nginx mysql-client postgresql-client \
-      imagemagick subversion git cvs bzr mercurial rsync ruby2.1 locales openssh-client \
-      gcc g++ make patch pkg-config ruby2.1-dev libc6-dev zlib1g-dev libxml2-dev \
+      imagemagick subversion git cvs bzr mercurial rsync ruby1.9.3 locales openssh-client \
+      gcc g++ make patch pkg-config ruby-dev libc6-dev zlib1g-dev libxml2-dev \
       libmysqlclient18 libpq5 libyaml-0-2 libcurl3 libssl1.0.0 \
       libxslt1.1 libffi6 zlib1g gsfonts \
  && update-locale LANG=C.UTF-8 LC_MESSAGES=POSIX \
- && gem install --no-document bundler \
+ && gem install bundler \
  && rm -rf /var/lib/apt/lists/* # 20150323
 
 ADD assets/setup/ /app/setup/
